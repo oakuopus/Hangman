@@ -1,6 +1,6 @@
 $(function() {
     var words = ["youloser", "words", "trollis", "worldle", "prettier", "canes"]
-    var guessedLetter = [], remainingGuesses = 6
+    var guessedLetter = [], remainingGuesses = 8
     var chosenWord = words[Math.floor(Math.random()*words.length)];
 
     for(var i=0; i < chosenWord.length; i++) {
@@ -9,13 +9,13 @@ $(function() {
 
     function updateGuesses(){
         $("#guess-container").empty()
-        $("#guess-container").text("Guessed Letters: " + guessedLetter.join(","));
+        $("#guess-container").html("Guessed Letters:<br> " + guessedLetter.join(","));
     }
 
     function checkGuess(letter){
         if(chosenWord.indexOf(letter) === -1){
             remainingGuesses--
-            $("#remaining-guesses").text("Remaining Guesses: " + remainingGuesses)
+            $("#remaining-guesses").text(remainingGuesses)
         }else{
             $(".hidden-letter").each(function(index){
                 if(chosenWord[index] === letter){
@@ -39,8 +39,8 @@ $(function() {
 
     function resetGame(){
         guessedLetter = []
-        remainingGuesses = 6
-        $('#remaining-guesses').text("Remaining Guesses: " + remainingGuesses)
+        remainingGuesses = 8
+        $('#remaining-guesses').text(remainingGuesses)
         $('#word-container').empty()
         chosenWord = words[Math.floor(Math.random() * words.length)]
         for(var i=0; i < chosenWord.length; i++) {
@@ -61,5 +61,5 @@ $(function() {
         resetGame()
     })
 
-    $("#remaining-guesses").text("Remaining Guesses: " + remainingGuesses)
+    $("#remaining-guesses").text(remainingGuesses)
 });

@@ -1,13 +1,82 @@
+$colors: (
+    "beige": #FFF8F0,
+    "red": #92140C,
+    "black": #1E1E24,
+);
+@function color($name) {
+    @return map-get($map: $colors, $key: $name);
+};
+@font-face {
+    font-family: hangman;
+    src: url(/oetztype/OETZTYP_.TTF);
+}
 body{
-    background-color: black;
-    color: white;
-    .hidden-letter{
-        display: inline-block;
-        width: 20px;
-        margin: 5px;
-        font-size: 24px;
+    background-color: color("black");
+    margin: 0;
+    color: color("red");
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    .hangman-title{
+        font-size: 6vw;
+        text-align: center;
+        margin: 10vh 0 0 0;
+        height: 5.9vw;
+        font-family: hangman;
+    }
+    main{
+        background-color: color("beige");
+        height: 35vw;
+        width: 60vw;
+        border-radius: 5%;
+        margin: auto;
+        .game-container{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: row;
+            .man{
+                height: 30vw;
+                width: 20vw;
+                padding: 2.5vw 0 2.5vw 2vw;
+                border-right: color("black") 2px solid;
+                .hanging{
+                    width: 16vw;
+                    height: 25vw;
+                    padding-left: 2vw;
+                    border: 1px solid color("black");
+                }
+                #word-container{
+                    font-size: 3vw;
+                    display: flex;
+                    letter-spacing: 4px;
+                    width: 20vw;
+                    justify-content: center;
+                }
+            }
+            #remaining-guesses{
+                font-size: 8vw;
+                margin: auto 0 auto 0;
+            }
+            .reset-guessed{
+                width: 100%;
+                border-left: color("black") 2px solid;
+                button{
+                    width: auto;
+                    font-size: 3vw;
+                    border-radius: 20%;
+                    margin: 3vw auto 6vw auto;
+                    display: flex;
+                }
+                .guessed-letters{
+                    font-size: 4vw;
+                }
+            }
+        }
     }
     .guessed-letters{
-        margin-top: 20px;
+        font-size: 2.5vw;
+        margin: auto;
+        text-align: center;
     }
 }

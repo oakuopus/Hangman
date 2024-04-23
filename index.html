@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="/css/hangman.css">
 </head>
 <body>
-    <h1>Hang man</h1>
-    <div id="word-container"></div>
-    <div class="guessed-letters" id="guess-container"></div>
-    <div id="remaining-guesses"></div>
-    <button id="reset-button">reset button</button>
+    <div class="hangman-title">HANG WOMAN</div>
+    <main>
+        <div class="game-container">
+            <section class="man">
+                <div class="hanging">
 
+                </div>
+                <div id="word-container"></div>
+            </section>
+            <div id="remaining-guesses"></div>
+            <section class="reset-guessed">
+                <button id="reset-button">Retry Game</button>
+
+                <footer class="guessed-letters" id="guess-container">
+                    Guessed letters:<br>
+                </footer>
+            </section>
+        </div>
+    </main>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
 </body>
