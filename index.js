@@ -22,8 +22,10 @@ $(function() {
         $("#guess-container").empty()
         $("#guess-container").html("Guessed Letters:<br> " + guessedLetter.join(", "));
     }
+
     var image = document.getElementById("image")
     var wrongguess = 0
+
     function checkGuess(letter){
         if(chosenWord.indexOf(letter) === -1){
             remainingGuesses--
@@ -60,7 +62,7 @@ $(function() {
             alert("Congratulations you Won")
             resetGame()
         }else if(remainingGuesses === 0){
-            alert("You suck word was: " + chosenWord)
+            alert("You suck, the word was :" + chosenWord)
             resetGame()
             }
         }
@@ -71,6 +73,8 @@ $(function() {
         $('#remaining-guesses').text(remainingGuesses)
         $('#word-container').empty()
         chosenWord = words[Math.floor(Math.random() * words.length)]
+        image.src = "./1.png"
+        wrongguess = 0
         for(var i=0; i < chosenWord.length; i++) {
             $('#word-container').append('<div class="hidden-letter">_</div>')
         }
