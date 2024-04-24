@@ -23,6 +23,7 @@ body{
         margin: 10vh 0 0 0;
         height: 5.9vw;
         font-family: hangman;
+        text-shadow: 2px 2px 8px color("beige");
     }
     main{
         background-color: color("beige");
@@ -43,15 +44,20 @@ body{
                 .hanging{
                     width: 16vw;
                     height: 25vw;
-                    padding-left: 2vw;
                     border: 1px solid color("black");
+                    display: grid;
+                    img{
+                        width: 100%;
+                        height: 25vw;
+                    }
                 }
                 #word-container{
                     font-size: 3vw;
                     display: flex;
                     letter-spacing: 4px;
-                    width: 20vw;
+                    width: 18vw;
                     justify-content: center;
+                    padding-right: 2vw;
                 }
             }
             #remaining-guesses{
@@ -61,15 +67,73 @@ body{
             .reset-guessed{
                 width: 100%;
                 border-left: color("black") 2px solid;
-                button{
-                    width: auto;
-                    font-size: 3vw;
-                    border-radius: 20%;
-                    margin: 3vw auto 6vw auto;
+                .tooltip {
+                    display: flex;
+                    font-size: 6vw;
+                    position: absolute;
+                    margin-left: 4vw;
+                    margin-top: 1.8vh;
+                    position: absolute;
+                    cursor: pointer;
+                }
+                .tooltip::after {
+                    content: attr(data-tooltip); 
+                    visibility: hidden;
+                    background-color: transparent;
+                    color: color("beige");
+                    padding: 0.5vw;
+                    margin-bottom: 2vh;
+                    border-radius: 0.5vw;
+                    position: absolute;
+                    z-index: 1;
+                    bottom: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 2vw;
+                    border: 2px solid color("beige");
+                    overflow-wrap: break-word;
+                    width: 40vw;
+                    height: auto;
                     display: flex;
                 }
+                .tooltip:hover::after {
+                    visibility: visible;
+                }
+                //BUTTON PROVIDED BY UIVERSE.IO, FROM ANDREW-DEMCHENK0
+                .button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 6px 12px;
+                    gap: 8px;
+                    height: 5vw;
+                    width: 16vw;
+                    border: none;
+                    background: #ff362b34;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    margin: 2vw auto 2vw 12vw;
+                }
+                .lable {
+                    line-height: 20px;
+                    font-size: 3vw;
+                    color: #FF342B;
+                    font-family: sans-serif;
+                    letter-spacing: 1px;
+                    padding-left: .5vw;
+                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                }
+                .button:hover {
+                    background: #ff362b52;
+                }
+                .button:hover .svg-icon {
+                    animation: spin 2s linear infinite;
+                }
+                //END
                 .guessed-letters{
                     font-size: 4vw;
+                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                    width: 85%;
                 }
             }
         }
@@ -80,3 +144,13 @@ body{
         text-align: center;
     }
 }
+//UIVERSE
+@keyframes spin {
+    0% {
+    transform: rotate(0deg);
+    }
+    100% {
+    transform: rotate(-360deg);
+    }
+}
+//END
