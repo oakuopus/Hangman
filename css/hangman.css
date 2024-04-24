@@ -16,6 +16,7 @@ body .hangman-title {
   margin: 10vh 0 0 0;
   height: 5.9vw;
   font-family: hangman;
+  text-shadow: 2px 2px 8px #FFF8F0;
 }
 body main {
   background-color: #FFF8F0;
@@ -39,15 +40,20 @@ body main .game-container .man {
 body main .game-container .man .hanging {
   width: 16vw;
   height: 25vw;
-  padding-left: 2vw;
   border: 1px solid #1E1E24;
+  display: grid;
+}
+body main .game-container .man .hanging img {
+  width: 100%;
+  height: 25vw;
 }
 body main .game-container .man #word-container {
   font-size: 3vw;
   display: flex;
   letter-spacing: 4px;
-  width: 20vw;
+  width: 18vw;
   justify-content: center;
+  padding-right: 2vw;
 }
 body main .game-container #remaining-guesses {
   font-size: 8vw;
@@ -57,18 +63,83 @@ body main .game-container .reset-guessed {
   width: 100%;
   border-left: #1E1E24 2px solid;
 }
-body main .game-container .reset-guessed button {
-  width: auto;
-  font-size: 3vw;
-  border-radius: 20%;
-  margin: 3vw auto 6vw auto;
+body main .game-container .reset-guessed .tooltip {
   display: flex;
+  font-size: 6vw;
+  position: absolute;
+  margin-left: 4vw;
+  margin-top: 1.8vh;
+  position: absolute;
+  cursor: pointer;
+}
+body main .game-container .reset-guessed .tooltip::after {
+  content: attr(data-tooltip);
+  visibility: hidden;
+  background-color: transparent;
+  color: #FFF8F0;
+  padding: 0.5vw;
+  margin-bottom: 2vh;
+  border-radius: 0.5vw;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2vw;
+  border: 2px solid #FFF8F0;
+  overflow-wrap: break-word;
+  width: 40vw;
+  height: auto;
+  display: flex;
+}
+body main .game-container .reset-guessed .tooltip:hover::after {
+  visibility: visible;
+}
+body main .game-container .reset-guessed .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  height: 5vw;
+  width: 16vw;
+  border: none;
+  background: rgba(255, 54, 43, 0.2039215686);
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 2vw auto 2vw 12vw;
+}
+body main .game-container .reset-guessed .lable {
+  line-height: 20px;
+  font-size: 3vw;
+  color: #FF342B;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  padding-left: 0.5vw;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+body main .game-container .reset-guessed .button:hover {
+  background: rgba(255, 54, 43, 0.3215686275);
+}
+body main .game-container .reset-guessed .button:hover .svg-icon {
+  animation: spin 2s linear infinite;
 }
 body main .game-container .reset-guessed .guessed-letters {
   font-size: 4vw;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  width: 85%;
 }
 body .guessed-letters {
   font-size: 2.5vw;
   margin: auto;
   text-align: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }/*# sourceMappingURL=hangman.css.map */
